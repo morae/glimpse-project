@@ -12,7 +12,7 @@ import scipy.sparse as sp
 
 from sklearn.base import BaseEstimator, ClusterMixin, TransformerMixin
 from sklearn.cluster import _k_means
-from sklearn.cluster.k_means_ import _squared_norms, _k_init, MiniBatchKMeans
+from sklearn.cluster.k_means_ import squared_norm, _k_init, MiniBatchKMeans
 from sklearn.metrics.pairwise import euclidean_distances
 from sklearn.utils.sparsefuncs import mean_variance_axis0
 from sklearn.utils import check_arrays
@@ -21,6 +21,8 @@ from sklearn.utils import atleast2d_or_csr
 from sklearn.utils import as_float_array
 from sklearn.externals.joblib import Parallel
 from sklearn.externals.joblib import delayed
+
+_squared_norms = squared_norm
 
 ###############################################################################
 
