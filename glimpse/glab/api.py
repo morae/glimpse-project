@@ -401,7 +401,7 @@ def MakeNormalRandomS2Prototypes(num_prototypes):
   :param int num_prototypes: Number of prototypes to create.
 
   """
-  alg = experiment.NormalProtoAlg()
+  alg = experiment.NormalAlg()
   _MakePrototypes(num_prototypes, alg)
 
 @depends(CORPUS)
