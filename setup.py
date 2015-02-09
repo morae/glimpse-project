@@ -117,7 +117,7 @@ base_backend_ext = NumpyExtension(
 
 setup(
   name = "glimpse",
-  version = "0.2.2",
+  version = "0.2.3",
   author = "Mick Thomure",
   author_email = "mthomure@gmail.com",
   packages = find_packages(),
@@ -153,7 +153,7 @@ setup(
     "PIL",
     "Python >= 2.7",
     "pyzmq >= 14.3.0",
-    "scikit-learn == 0.14.1",
+    "scikit-learn == 0.15.2",
     "scipy",
     "traits",
     "traitsui",
