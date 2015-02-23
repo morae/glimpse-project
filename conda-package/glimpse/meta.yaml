@@ -32,11 +32,11 @@ requirements:
     - decorator
     - ipython 2.1.0
     - matplotlib
-    - numpy
+    - numpy 1.8.*
     - pil
     - python
     - pyzmq 14.3.0
-    - scikit-learn 0.15.2
+    - scikit-learn 0.14.1
     - scipy
     - traits
     - traitsui
@@ -45,11 +45,11 @@ requirements:
     - decorator
     - ipython 2.1.0
     - matplotlib
-    - numpy
+    - numpy 1.8.*
     - pil
     - python
     - pyzmq 14.3.0
-    - scikit-learn 0.15.2
+    - scikit-learn 0.14.1
     - scipy
     - traits
     - traitsui
