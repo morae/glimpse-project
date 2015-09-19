@@ -396,12 +396,9 @@ def _AnnotateS2ReceptiveField(exp, image, scale, s2_y, s2_x, kwidth=0):
   y0,y1,x0,x1 = GetS2ReceptiveField(exp.extractor.model.params, scale, s2_y,
       s2_x, kwidth_offset=kwidth)
   img = toimage(GetActivity(exp, image, Layer.IMAGE))
-  plt.imshow(img, cmap=plt.cm.gray, origin='lower')
+  plt.imshow(img, cmap=plt.cm.gray)
   plt.xticks(())
   plt.yticks(())
-  # invert y-coordinates, since origin='lower' in imshow
-  y0 = img.size[1] - y0
-  y1 = img.size[1] - y1
   plt.gca().add_patch(plt.Rectangle((x0,y0), width=x1-x0, height=y1-y0,
       fill=True, color='r', alpha=.5))
 
