@@ -29,7 +29,7 @@ build:
 
 requirements:
   build:
-    - decorator
+    - decorator 3.4.0
     - ipython 2.1.0
     - matplotlib
     - numpy 1.8.*
@@ -42,7 +42,7 @@ requirements:
     - traitsui
 
   run:
-    - decorator
+    - decorator 3.4.0
     - ipython 2.1.0
     - matplotlib
     - numpy 1.8.*

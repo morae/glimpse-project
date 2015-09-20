@@ -146,7 +146,7 @@ setup(
     "Operating System :: MacOS",
   ],
   install_requires = [
-    "decorator",
+    "decorator == 3.4.0",
     "ipython >= 2.1.0",
     "numpy < 1.9.0",
     "matplotlib",
