@@ -137,7 +137,7 @@ def GetBestPrototypeMatch(exp, image, prototype=0, kwidth=0):
   """Find the S2 unit with maximum response for a given prototype and image.
 
   :param image: Path to image on disk, or index of image in experiment.
-  :param int prototype: Index of S2 prototype.
+  :param int prototype: Single index, or list of indices of S2 prototypes.
   :param int kwidth: Index of kernel shape.
   :rtype: 3-tuple of int
   :returns: S2 unit, given as (scale, y, x)
@@ -148,10 +148,18 @@ def GetBestPrototypeMatch(exp, image, prototype=0, kwidth=0):
   model = exp.extractor.model
   st = BuildLayer(model, Layer.S2, model.MakeState(image), save_all=False)
   data = st[Layer.S2]  # indexed by (scale, kwidth, proto, height, width)
-  scale = np.argmax([d[kwidth][prototype].max() for d in data])
-  scale_data = data[scale][kwidth][prototype]
-  y,x = [ c[0] for c in np.where(scale_data == scale_data.max()) ]
-  return scale, y, x
+
+  def singlePrototype(prototype):
+    scale = np.argmax([d[kwidth][prototype].max() for d in data])
+    scale_data = data[scale][kwidth][prototype]
+    y,x = [ c[0] for c in np.where(scale_data == scale_data.max()) ]
+    return scale, y, x
+
+  if isinstance(prototype, list):
+    return map(singlePrototype, prototype)
+
+  else:
+    return singlePrototype(prototype)
 
 def _ScaleImage(exp, image, scale=0):
   image = toimage(image, mode = 'F')
